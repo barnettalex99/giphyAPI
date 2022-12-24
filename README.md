@@ -1,0 +1,1 @@
+This project will generate a random gif using their API.
