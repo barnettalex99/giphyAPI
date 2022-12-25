@@ -12,13 +12,13 @@
     <img src="#">
     <script>
         const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=L28r83harjztFVoEaTvnQPX1G7b2gdxH&s=dogs', {mode: 'cors'})
-            .then (function (response) {
-                return response.json();
-            })
-            .then (function (response) {
-                img.src = response.data.images.original.url;
-            });
+        
+        async function getDogGif() {
+            const response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=L28r83harjztFVoEaTvnQPX1G7b2gdxH&s=dogs', {mode: 'cors'})
+            const dogGifs = await response.json();
+            img.src = dogGifs.data.images.original.url;
+        } 
+        getDogGif();
     </script>
 </body>
 </html>
